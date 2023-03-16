@@ -1,10 +1,16 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Home } from './pages/Home.page';
+
 import { ThemeProvider } from './ThemeProvider';
-import { Welcome } from './Welcome/Welcome';
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <Welcome />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
