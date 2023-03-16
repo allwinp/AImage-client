@@ -9,6 +9,9 @@ const useStyles = createStyles(() => ({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  title: {
+    fontFamily: 'Inter',
+  },
 }));
 
 export function HeaderAction() {
@@ -17,12 +20,14 @@ export function HeaderAction() {
   return (
     <Header height={HEADER_HEIGHT} sx={{ borderBottom: 0 }} mb={120}>
       <Container className={classes.inner} fluid>
-        <Flex gap="sm" align="center">
+        <Flex gap={10} align="center" justify="start">
           <Image height={60} fit="contain" src="src/logo.png" alt="" />
-          <Title fw={5000}>AIwin</Title>
+          <Title fw={5000} className={classes.title}>
+            AIwin
+          </Title>
         </Flex>
         <Button color="violet" radius="xl" h={30}>
-          Get early access
+          Generate
         </Button>
       </Container>
     </Header>

@@ -1,26 +1,24 @@
-import { Container, Grid, SimpleGrid, Skeleton, useMantineTheme, rem } from '@mantine/core';
+import { Container, SimpleGrid } from '@mantine/core';
 
-const PRIMARY_COL_HEIGHT = rem(300);
+import { ImageCard } from './ImageCard.component';
 
-export function LeadGrid() {
-  const theme = useMantineTheme();
-  const SECONDARY_COL_HEIGHT = `calc(${PRIMARY_COL_HEIGHT} / 2 - ${theme.spacing.md} / 2)`;
+interface LeadGridProps {
+  data: [] | null;
+}
 
+export function LeadGrid({ data }: LeadGridProps) {
+  interface ImageCardProps {
+    _id: string;
+    name: string;
+    prompt: string;
+    photo: string;
+  }
   return (
     <Container my="md">
-      <SimpleGrid cols={2} spacing="md" breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-        <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={false} />
-        <Grid gutter="md">
-          <Grid.Col>
-            <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-          </Grid.Col>
-          <Grid.Col span={6}>
-            <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-          </Grid.Col>
-          <Grid.Col span={6}>
-            <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
-          </Grid.Col>
-        </Grid>
+      <SimpleGrid cols={3} spacing="md" breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+        {data?.map(({ _id, name, prompt, photo }: ImageCardProps) => (
+          <ImageCard _id={_id} name={name} prompt={prompt} photo={photo} />
+        ))}
       </SimpleGrid>
     </Container>
   );
