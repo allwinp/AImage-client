@@ -37,7 +37,7 @@ export function HeaderAction() {
             <Image
               height={60}
               fit="contain"
-              src="https://raw.githubusercontent.com/allwinp/AImage-client/master/logo.png"
+              src="https://raw.githubusercontent.com/allwinp/AImage-client/master/src/logo.png"
               alt=""
             />
             <Title fw={5000} className={classes.title}>
