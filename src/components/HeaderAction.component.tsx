@@ -1,4 +1,14 @@
-import { createStyles, Header, Container, Button, Image, Flex, rem, Title } from '@mantine/core';
+import {
+  createStyles,
+  Header,
+  Container,
+  Button,
+  Image,
+  Flex,
+  rem,
+  Title,
+  Text,
+} from '@mantine/core';
 import { Link } from 'react-router-dom';
 
 const HEADER_HEIGHT = rem(60);
@@ -26,7 +36,10 @@ export function HeaderAction() {
           <Flex gap={10} align="center" justify="start">
             <Image height={60} fit="contain" src="src/logo.png" alt="" />
             <Title fw={5000} className={classes.title}>
-              AIwin
+              <Text span color="teal.3" className={classes.title}>
+                AI
+              </Text>
+              mage
             </Title>
           </Flex>
         </Link>

@@ -17,7 +17,7 @@ export function LeadGrid({ data }: LeadGridProps) {
     <Container my="md">
       <SimpleGrid cols={3} spacing="md" breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
         {data?.map(({ _id, name, prompt, photo }: ImageCardProps) => (
-          <ImageCard _id={_id} name={name} prompt={prompt} photo={photo} />
+          <ImageCard key={_id} _id={_id} name={name} prompt={prompt} photo={photo} />
         ))}
       </SimpleGrid>
     </Container>

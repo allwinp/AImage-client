@@ -5,18 +5,20 @@ import { IconAlertCircle, IconArrowsShuffle } from '@tabler/icons-react';
 import { useForm } from '@mantine/form';
 import { randomPrompts } from '../randomPrompts';
 
-import { HeaderAction } from '../components/HeaderAction.component';
-
 export function Generate() {
   const [generating, setGenerating] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [alert, setAlert] = useState(false);
+
   const navigate = useNavigate();
+
   const form = useForm({ initialValues: { name: '', prompt: '', photo: '' } });
+
   const generateImage = async () => {
     if (form.values.prompt) {
       setGenerating(true);
       try {
-        const response = await fetch('https://dalle.allweezy.repl.co/api/v1/dalle', {
+        const response = await fetch('https://aimage.herokuapp.com/api/v1/dalle', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ prompt: form.values.prompt }),
@@ -39,7 +41,7 @@ export function Generate() {
     if (form.values.prompt && form.values.photo) {
       setLoading(true);
       try {
-        const response = await fetch('https://dalle.allweezy.repl.co/api/v1/post', {
+        const response = await fetch('https://aimage.herokuapp.com/api/v1/post', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(form.values),
@@ -54,12 +56,16 @@ export function Generate() {
       } finally {
         setLoading(false);
       }
+    } else {
+      setAlert(true);
+      setTimeout(() => {
+        setAlert(false);
+      }, 5000);
     }
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <HeaderAction />
+    <div>
       <Flex mt={20} direction="column">
         <Title fw={2000} size="48px" order={1} align="left" color="white">
           <Text span color="teal.3">
@@ -95,6 +101,18 @@ export function Generate() {
           >
             <IconArrowsShuffle />
           </ActionIcon>
+          {alert && (
+            <Alert
+              maw={500}
+              mah={100}
+              icon={<IconAlertCircle size="1rem" />}
+              title="Bummer!"
+              color="red"
+              variant="filled"
+            >
+              Please fill out form fields
+            </Alert>
+          )}
           <Button
             mt={40}
             w={150}
