@@ -34,7 +34,12 @@ export function HeaderAction() {
       <Container className={classes.inner} fluid>
         <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
           <Flex gap={10} align="center" justify="start">
-            <Image height={60} fit="contain" src="/logo.png" alt="" />
+            <Image
+              height={60}
+              fit="contain"
+              src="https://raw.githubusercontent.com/allwinp/AImage-client/master/logo.png"
+              alt=""
+            />
             <Title fw={5000} className={classes.title}>
               <Text span color="teal.3" className={classes.title}>
                 AI
