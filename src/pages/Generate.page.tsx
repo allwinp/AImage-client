@@ -82,6 +82,7 @@ export function Generate() {
             placeholder="Jane Doe"
             label="Name"
             {...form.getInputProps('name')}
+            required
           />
           <TextInput
             maw={900}
@@ -90,6 +91,7 @@ export function Generate() {
             placeholder="an oil painting by Matisse of a humanoid robot playing chess"
             label="Prompt"
             {...form.getInputProps('prompt')}
+            required
           />
           <ActionIcon
             color="violet.3"
