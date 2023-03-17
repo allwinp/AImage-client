@@ -30,7 +30,7 @@ export function Home() {
   return (
     <div>
       <Flex direction="column" align="center">
-        <Title order={1} align="center" color="teal.3">
+        <Title order={1} align="center" color="teal.4">
           Community Collection
         </Title>
         <Text style={{ marginTop: '10px' }} align="center">

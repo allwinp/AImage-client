@@ -38,7 +38,7 @@ export function Generate() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    if (form.values.prompt && form.values.photo) {
+    if (form.values.name && form.values.prompt && form.values.photo) {
       setLoading(true);
       try {
         const response = await fetch('https://aimage.herokuapp.com/api/v1/post', {
