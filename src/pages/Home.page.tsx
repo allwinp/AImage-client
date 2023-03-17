@@ -30,9 +30,9 @@ export function Home() {
   }, []);
 
   return (
-    <div>
+    <div style={{ padding: '20px' }}>
       <HeaderAction />
-      <Title order={1} align="center" color="white">
+      <Title order={1} align="center" color="teal.3">
         Community Collection
       </Title>
       <Text style={{ marginTop: '10px' }} align="center">

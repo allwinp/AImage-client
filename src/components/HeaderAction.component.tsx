@@ -31,7 +31,7 @@ export function HeaderAction() {
           </Flex>
         </Link>
         <Link to="/generate">
-          <Button color="violet.4" radius="xl" h={30}>
+          <Button color="violet.4" radius="sm" h={30}>
             Generate
           </Button>
         </Link>
