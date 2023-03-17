@@ -129,7 +129,7 @@ export function Generate() {
             </div>
           ) : (
             <div style={{ border: '1px solid black', width: '280px' }}>
-              <Image width="280px" src="src/preview.png" />
+              <Image width="280px" src="../../preview.png" />
             </div>
           )}
           <Button type="submit" mt={20} w={350} color="violet.4" loading={loading} mb={20}>
